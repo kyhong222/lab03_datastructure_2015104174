@@ -1,54 +1,64 @@
-#include"Favicon.h"
+#include "Favicon.h"
 
-int Favicon::AddItem() {
+int Favicon::AddItem()
+{
 	Content temp;
 	temp.SetNameFromKB();
 
-	if (MasterList->Retrieve_BinaryS(temp)) {
+	if (MasterList->Retrieve_BinaryS(temp))
+	{
 		temp = temp.getRecordForLink();
 		MCList.Add(temp);
 		MCLength++;
 		return 1;
 	}
-	else {
+	else
+	{
 		cout << "\tThere is no item like that" << endl;
 		return 0;
 	}
 }
 
-int Favicon::DeleteItem() {
+int Favicon::DeleteItem()
+{
 	Content temp;
 	temp.SetNameFromKB();
 
-	if (MCList.Delete(temp)) {
+	if (MCList.Delete(temp))
+	{
 		MCLength--;
 		return 1;
 	}
-	else {
+	else
+	{
 		cout << "\tThere is no item like that" << endl;
 		return 0;
 	}
 }
 
-int Favicon::RetriveItem() {
+int Favicon::RetriveItem()
+{
 	Content temp;
 	temp.SetNameFromKB();
-	if (MCList.Retrieve_BinaryS(temp)) {
+	if (MCList.Retrieve_BinaryS(temp))
+	{
 		temp.displayRecord();
 		return 1;
 	}
-	else {
+	else
+	{
 		cout << "\tThere is no item like that" << endl;
 		return 0;
 	}
 }
 
-void Favicon::DisplayItems() {
+void Favicon::DisplayItems()
+{
 	Content temp;
 	cout << endl;
 	cout << "\n\tMC list in event(Link)" << endl;
 
-	// listÀÇ ¸ðµç µ¥ÀÌÅÍ¸¦ È­¸é¿¡ Ãâ·Â
+	// listï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½
 	MCList.ResetList();
 	int length = MCLength;
 	int curIndex = MCList.GetNextItem(temp);
@@ -59,13 +69,13 @@ void Favicon::DisplayItems() {
 	}
 }
 
-
-void Favicon::DisplayItemsDetailed() {
+void Favicon::DisplayItemsDetailed()
+{
 	Content temp;
 	cout << endl;
 	cout << "\n\tMC list in event" << endl;
 
-	// listÀÇ ¸ðµç µ¥ÀÌÅÍ¸¦ È­¸é¿¡ Ãâ·Â
+	// listï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½
 	MCList.ResetList();
 	int length = MCLength;
 	int curIndex = MCList.GetNextItem(temp);
@@ -77,49 +87,33 @@ void Favicon::DisplayItemsDetailed() {
 	}
 }
 
-void Favicon::rearrange() {
+void Favicon::rearrange()
+{
 	int command;
 	cout << "\tarrange to(1.name 2.create time 3.content type) : ";
 	cin >> command;
-	if (command == 1) {
+	if (command == 1)
+	{
 		this->DisplayItems();
 	}
-	else if (command == 2) {
-		Content newArray[MAXSIZE];
-		
-		Content temp;
-		MCList.ResetList();
-		for (int i = 0; i < MCLength; i++) {
-			MCList.GetNextItem(temp);
-			newArray[i] = temp;
-		}
-
-		for (int i = 0; i < MCLength; i++) {
-			for (int j = 0; j < MCLength-1 - i; j++) {
-				if (newArray[j].CompareByCreateAt(newArray[j + 1])) {
-					temp = newArray[j];
-					newArray[j] = newArray[j + 1];
-					newArray[j + 1] = temp; }
-			} 
-		}
-		
-		for (int i = 0; i < MCLength; i++) {
-			newArray[i].displayRecordForLink();
-		}
-	}
-	else if (command == 3) {
+	else if (command == 2)
+	{
 		Content newArray[MAXSIZE];
 
 		Content temp;
 		MCList.ResetList();
-		for (int i = 0; i < MCLength; i++) {
+		for (int i = 0; i < MCLength; i++)
+		{
 			MCList.GetNextItem(temp);
 			newArray[i] = temp;
 		}
 
-		for (int i = 0; i < MCLength; i++) {
-			for (int j = 0; j < MCLength - 1 - i; j++) {
-				if (newArray[j].CompareByType(newArray[j + 1])) {
+		for (int i = 0; i < MCLength; i++)
+		{
+			for (int j = 0; j < MCLength - 1 - i; j++)
+			{
+				if (newArray[j].CompareByCreateAt(newArray[j + 1]))
+				{
 					temp = newArray[j];
 					newArray[j] = newArray[j + 1];
 					newArray[j + 1] = temp;
@@ -127,20 +121,54 @@ void Favicon::rearrange() {
 			}
 		}
 
-		for (int i = 0; i < MCLength; i++) {
+		for (int i = 0; i < MCLength; i++)
+		{
 			newArray[i].displayRecordForLink();
 		}
 	}
-	else {
+	else if (command == 3)
+	{
+		Content newArray[MAXSIZE];
+
+		Content temp;
+		MCList.ResetList();
+		for (int i = 0; i < MCLength; i++)
+		{
+			MCList.GetNextItem(temp);
+			newArray[i] = temp;
+		}
+
+		for (int i = 0; i < MCLength; i++)
+		{
+			for (int j = 0; j < MCLength - 1 - i; j++)
+			{
+				if (newArray[j].CompareByType(newArray[j + 1]))
+				{
+					temp = newArray[j];
+					newArray[j] = newArray[j + 1];
+					newArray[j + 1] = temp;
+				}
+			}
+		}
+
+		for (int i = 0; i < MCLength; i++)
+		{
+			newArray[i].displayRecordForLink();
+		}
+	}
+	else
+	{
 		cout << "\tinvalid command" << endl;
 	}
 	return;
 }
 
-void Favicon::getCommand() {
+void Favicon::getCommand()
+{
 	while (1)
 	{
-		cout << endl << endl;
+		cout << endl
+				 << endl;
 		cout << "\t---ID -- Command ----- " << endl;
 		cout << "\t   1 : Add content on favicon list" << endl;
 		cout << "\t   2 : Delete content on favicon list" << endl;
@@ -153,35 +181,36 @@ void Favicon::getCommand() {
 		cout << "\t   9 : Rearrange favicon list" << endl;
 		cout << "\t   0 : Quit" << endl;
 
-		cout << endl << "\t Choose a Command--> ";
+		cout << endl
+				 << "\t Choose a Command--> ";
 
 		int m_Command;
 		cin >> m_Command;
 
 		switch (m_Command)
 		{
-		case 1:		// read a record and add to list.
+		case 1: // read a record and add to list.
 			AddItem();
 			break;
-		case 2:		//delete
+		case 2: //delete
 			DeleteItem();
 			break;
-		case 3:		//replace
+		case 3: //replace
 			RetriveItem();
 			break;
-		case 4:		//search by filename.
+		case 4: //search by filename.
 			DisplayItems();
 			break;
-		case 5:		// display all the records in list on screen.
+		case 5: // display all the records in list on screen.
 			DisplayItemsDetailed();
 			break;
-		case 6:		// make empty list.
+		case 6: // make empty list.
 			MCList.MakeEmpty();
 			break;
-		case 7:		// load list data from a file.
+		case 7: // load list data from a file.
 			ReadDataFromFile();
 			break;
-		case 8:		// save list data into a file.
+		case 8: // save list data into a file.
 			WriteDataToFile();
 			break;
 		case 9:
@@ -199,50 +228,53 @@ void Favicon::getCommand() {
 // Open a file by file descriptor as an input file.
 int Favicon::OpenInFile(string fileName)
 {
-	m_InFile.open(fileName);	// file open for reading.
+	m_InFile.open(fileName); // file open for reading.
 
-	// ÆÄÀÏ ¿ÀÇÂ¿¡ ¼º°øÇÏ¸é 1, ±×·¸Áö ¾Ê´Ù¸é 0À» ¸®ÅÏ.
-	if (!m_InFile)	return 0;
-	else	return 1;
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ 1, ï¿½×·ï¿½ï¿½ï¿½ ï¿½Ê´Ù¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	if (!m_InFile)
+		return 0;
+	else
+		return 1;
 }
-
 
 // Open a file by file descriptor as an output file.
 int Favicon::OpenOutFile(string fileName)
 {
-	m_OutFile.open(fileName);	// file open for writing.
+	m_OutFile.open(fileName); // file open for writing.
 
-	// ÆÄÀÏ ¿ÀÇÂ¿¡ ¼º°øÇÏ¸é 1, ±×·¸Áö ¾Ê´Ù¸é 0À» ¸®ÅÏ.
-	if (!m_OutFile)	return 0;
-	else	return 1;
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ 1, ï¿½×·ï¿½ï¿½ï¿½ ï¿½Ê´Ù¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	if (!m_OutFile)
+		return 0;
+	else
+		return 1;
 }
 
 // Open a file as a read mode, read all data on the file, and set list by the data.
 int Favicon::ReadDataFromFile()
 {
 	int index = 0;
-	Content data;	// ÀÐ±â¿ë ÀÓ½Ã º¯¼ö
+	Content data; // ï¿½Ð±ï¿½ï¿½ ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	string filename;
 	cout << "\n\tEnter Output file Name : ";
 	cin >> filename;
 
-	// file open, open error°¡ ¹ß»ýÇÏ¸é 0À» ¸®ÅÏ
+	// file open, open errorï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (!OpenInFile(filename))
 		return 0;
 
-	// ÆÄÀÏÀÇ ¸ðµç ³»¿ëÀ» ÀÐ¾î list¿¡ Ãß°¡
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ listï¿½ï¿½ ï¿½ß°ï¿½
 	while (!m_InFile.eof())
 	{
-		// array¿¡ ÇÐ»ýµéÀÇ Á¤º¸°¡ µé¾îÀÖ´Â structure ÀúÀå
+		// arrayï¿½ï¿½ ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ structure ï¿½ï¿½ï¿½ï¿½
 		data.ReadDataFromFileForLink(m_InFile);
 		MCList.Add(data);
 	}
 
 	MCLength = MCList.GetLength();
-	m_InFile.close();	// file close
+	m_InFile.close(); // file close
 
-	// ÇöÀç list Ãâ·Â
+	// ï¿½ï¿½ï¿½ï¿½ list ï¿½ï¿½ï¿½
 	//DisplayAllItem();
 
 	return 1;
@@ -251,20 +283,20 @@ int Favicon::ReadDataFromFile()
 // Open a file as a write mode, and write all data into the file,
 int Favicon::WriteDataToFile()
 {
-	Content data;	// ¾²±â¿ë ÀÓ½Ã º¯¼ö
+	Content data; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	string filename;
 	cout << "\n\tEnter Output file Name : ";
 	cin >> filename;
 
-	// file open, open error°¡ ¹ß»ýÇÏ¸é 0À» ¸®ÅÏ
+	// file open, open errorï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (!OpenOutFile(filename))
 		return 0;
 
-	// list Æ÷ÀÎÅÍ¸¦ ÃÊ±âÈ­
+	// list ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ê±ï¿½È­
 	MCList.ResetList();
 
-	// listÀÇ ¸ðµç µ¥ÀÌÅÍ¸¦ ÆÄÀÏ¿¡ ¾²±â
+	// listï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int length = MCLength;
 	int curIndex = MCList.GetNextItem(data);
 	while (curIndex < length && curIndex != -1)
@@ -273,7 +305,7 @@ int Favicon::WriteDataToFile()
 		curIndex = MCList.GetNextItem(data);
 	}
 
-	m_OutFile.close();	// file close
+	m_OutFile.close(); // file close
 
 	return 1;
 }

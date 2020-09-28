@@ -96,42 +96,41 @@ public:
 	int WriteDataToFile();
 
 	/**
-	*	@brief	¸®½ºÆ®¿¡¼­ ÇØ´ç id¸¦ °¡Áø itemÀ» Ã£´Â´Ù.
-	*	@pre	¾øÀ½.
-	*	@post	Ã£Àº itemÀ» Ãâ·ÂÇÑ´Ù.
-	*	@return	¼º°ø½Ã 1À» ¸®ÅÏ, ½ÇÆÐ½Ã 0À» ¸®ÅÏ.
+	*	@brief	ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ Ã£ï¿½Â´ï¿½.
+	*	@pre	ï¿½ï¿½ï¿½ï¿½.
+	*	@post	Ã£ï¿½ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	*	@return	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ð½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	*/
 	int SearchById_SequenS();
 
-
 	/**
-	*	@brief	¸®½ºÆ®¿¡¼­ ÇØ´ç id¸¦ °¡Áø itemÀ» Ã£¾Æ Á¦°ÅÇÑ´Ù.
-	*	@pre	ÀÔ·ÂÇÏ´Â id°¡ ¸®½ºÆ®¿¡ Á¸ÀçÇØ¾ß ÇÑ´Ù.
-	*	@post	¸®½ºÆ®¿¡ ÇØ´ç itemÀ» Á¦°ÅÇÑ´Ù.
-	*	@return	¼º°ø½Ã 1À» ¸®ÅÏ, ½ÇÆÐ½Ã 0À» ¸®ÅÏ.
+	*	@brief	ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	*	@pre	ï¿½Ô·ï¿½ï¿½Ï´ï¿½ idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ñ´ï¿½.
+	*	@post	ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ø´ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	*	@return	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ð½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	*/
 	int DeleteItem();
 
 	/**
-	*	@brief	¸®½ºÆ®¿¡¼­ ÇØ´ç id¸¦ °¡Áø itemÀ» Ã£¾Æ º¯°æÇÑ´Ù.
-	*	@pre	ÀÔ·ÂÇÏ´Â id°¡ ¸®½ºÆ®¿¡ Á¸ÀçÇØ¾ß ÇÑ´Ù.
-	*	@post	¸®½ºÆ®¿¡ itemÀÌ º¯°æµÈ´Ù.
+	*	@brief	ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	*	@pre	ï¿½Ô·ï¿½ï¿½Ï´ï¿½ idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½Ñ´ï¿½.
+	*	@post	ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
 	*/
 	int ReplaceItem();
 
 	/**
-	*	@brief	¸®½ºÆ®¿¡¼­ ÇØ´ç id¸¦ °¡Áø itemÀ» ÀÌÁøÅ½»öÀ» ÀÌ¿ëÇØ Ã£´Â´Ù.
-	*	@pre	¾øÀ½.
-	*	@post	Ã£Àº itemÀÌ È­¸é¿¡ Ãâ·ÂµÈ´Ù.
-	*	@return	¼º°ø½Ã 1À» ¸®ÅÏ, ½ÇÆÐ½Ã 0À» ¸®ÅÏ.
+	*	@brief	ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ Ã£ï¿½Â´ï¿½.
+	*	@pre	ï¿½ï¿½ï¿½ï¿½.
+	*	@post	Ã£ï¿½ï¿½ itemï¿½ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ÂµÈ´ï¿½.
+	*	@return	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½Ð½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	*/
 	int SearchByID_BinaryS();
 
 private:
-	ifstream m_InFile;				///< input file descriptor.
-	ofstream m_OutFile;				///< output file descriptor.
-	SortedList<Content> m_List;	///< item list.
-	Favicon faviconList;			///< fc list
-	Event eventList;				///< evnet list
-	int m_Command;					///< current command number.
+	ifstream m_InFile;					///< input file descriptor.
+	ofstream m_OutFile;					///< output file descriptor.
+	SortedList<Content> m_List; ///< item list.
+	Favicon faviconList;				///< fc list
+	Event eventList;						///< evnet list
+	int m_Command;							///< current command number.
 };

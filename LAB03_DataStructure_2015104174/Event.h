@@ -1,22 +1,25 @@
 #pragma once
-#include<iostream>
-#include<string>
+#include <iostream>
+#include <string>
 #include "SortedList.h"
 #include "Content.h"
 
 using namespace std;
 
-class Event {
+class Event
+{
 public:
 	// constructor
-	Event() {
+	Event()
+	{
 		name = "untitled";
 		description = "no-description";
 		MCLength = 0;
 	}
 
 	// destructor
-	~Event() {
+	~Event()
+	{
 	}
 
 	// add item in event's MCList with fileName as simple record
@@ -35,7 +38,7 @@ public:
 	void DisplayItemsDetailed();
 
 	// it used for access master list on application
-	void setMasterList(SortedList<Content>* masterList) { MasterList = masterList; }
+	void setMasterList(SortedList<Content> *masterList) { MasterList = masterList; }
 
 	// it used for set event's name & description
 	void setEventFromKB();
@@ -56,13 +59,13 @@ public:
 	int OpenOutFile(string filename);
 
 protected:
-	string name;					///< event name
-	string description;				///< event description
-	int MCLength;					///< MC length
+	string name;				///< event name
+	string description; ///< event description
+	int MCLength;				///< MC length
 
-	ifstream m_InFile;				///< input file descriptor.
-	ofstream m_OutFile;				///< output file descriptor.
-	
-	SortedList<Content> MCList;		///< MC list
-	SortedList<Content>* MasterList;///< master list pointer
+	ifstream m_InFile;	///< input file descriptor.
+	ofstream m_OutFile; ///< output file descriptor.
+
+	SortedList<Content> MCList;			 ///< MC list
+	SortedList<Content> *MasterList; ///< master list pointer
 };

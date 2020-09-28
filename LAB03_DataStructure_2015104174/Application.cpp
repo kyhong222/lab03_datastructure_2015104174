@@ -9,34 +9,34 @@ void Application::Run()
 
 		switch (m_Command)
 		{
-		case 1:		// read a record and add to list.
+		case 1: // read a record and add to list.
 			AddItem();
 			break;
-		case 2:		//delete
+		case 2: //delete
 			DeleteItem();
 			break;
-		case 3:		//replace
+		case 3: //replace
 			ReplaceItem();
 			break;
-		case 4:		//search by filename.
+		case 4: //search by filename.
 			SearchById_SequenS();
 			break;
-		case 5:		// display all the records in list on screen.
+		case 5: // display all the records in list on screen.
 			DisplayAllItem();
 			break;
-		case 6:		// make empty list.
+		case 6: // make empty list.
 			m_List.MakeEmpty();
 			break;
-		case 7:		// load list data from a file.
+		case 7: // load list data from a file.
 			ReadDataFromFile();
 			break;
-		case 8:		// save list data into a file.
+		case 8: // save list data into a file.
 			WriteDataToFile();
 			break;
-		case 9:		// go to favicon menu
+		case 9: // go to favicon menu
 			faviconList.getCommand();
 			break;
-		case 10:	// go to event menu
+		case 10: // go to event menu
 			eventList.getCommand();
 			break;
 		case 0:
@@ -48,12 +48,12 @@ void Application::Run()
 	}
 }
 
-
 // Display command on screen and get a input from keyboard.
 int Application::GetCommand()
 {
 	int command;
-	cout << endl << endl;
+	cout << endl
+			 << endl;
 	cout << "\t---ID -- Command ----- " << endl;
 	cout << "\t   1 : Add content on master list" << endl;
 	cout << "\t   2 : Delete content on master list" << endl;
@@ -67,18 +67,18 @@ int Application::GetCommand()
 	cout << "\t   10 : Go to Event Menu " << endl;
 	cout << "\t   0 : Quit" << endl;
 
-	cout << endl << "\t Choose a Command--> ";
+	cout << endl
+			 << "\t Choose a Command--> ";
 	cin >> command;
 	cout << endl;
 
 	return command;
 }
 
-
 // Add new record into list.
 int Application::AddItem()
 {
-	// ÀÔ·Â¹ÞÀº ·¹ÄÚµå¸¦ ¸®½ºÆ®¿¡ add, ¸®½ºÆ®°¡ fullÀÏ °æ¿ì´Â addÇÏÁö ¾Ê°í 0À» ¸®ÅÏ
+	// ï¿½Ô·Â¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ add, ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ fullï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ addï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (m_List.IsFull())
 	{
 		cout << "List is full" << endl;
@@ -93,33 +93,33 @@ int Application::AddItem()
 	return 1;
 }
 
-//filenameÀ¸·Î itemÀ» Ã£¾Æ Ãâ·ÂÇÑ´Ù.
+//filenameï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 int Application::SearchById_SequenS()
 {
 	Content item;
-	item.SetNameFromKB(); //nameÀÔ·Â¹Þ´Â´Ù.
+	item.SetNameFromKB(); //nameï¿½Ô·Â¹Þ´Â´ï¿½.
 
-	if (m_List.Retrieve_SeqS(item)) //0ÀÌ ¾Æ´Ï¸é(Ã£À¸¸é)
+	if (m_List.Retrieve_SeqS(item)) //0ï¿½ï¿½ ï¿½Æ´Ï¸ï¿½(Ã£ï¿½ï¿½ï¿½ï¿½)
 	{
 		cout << "<============ Item FOUND !==========>" << endl;
-		item.displayRecord(); //ÇØ´ç itemÀ» Ãâ·ÂÇÑ´Ù.
+		item.displayRecord(); //ï¿½Ø´ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 		cout << "<====================================>" << endl;
-		return 1;	//¼º°ø(1)À» ¸®ÅÏ
+		return 1; //ï¿½ï¿½ï¿½ï¿½(1)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
 	cout << "<======== ITEM Not Found!==========>" << endl;
-	return 0;	//½ÇÆÐ(0)À» ¸®ÅÏ
+	return 0; //ï¿½ï¿½ï¿½ï¿½(0)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
-//id·Î itemÀ» Ã£¾Æ¼­ Á¦°ÅÇÑ´Ù.
+//idï¿½ï¿½ itemï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 int Application::DeleteItem()
 {
-	int pre = m_List.GetLength();//ÀÌÀü item°³¼ö¸¦ ¹Þ¾Æ¿Â´Ù.
+	int pre = m_List.GetLength(); //ï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿Â´ï¿½.
 	Content item;
 	item.SetNameFromKB();
 
 	m_List.Delete(item);
 
-	if (pre > m_List.GetLength()) //ÀÌÀü item°³¼öº¸´Ù ÇöÀç item°³¼ö°¡ ¸¹¾ÆÁö¸é Á¦°Å¼º°ø
+	if (pre > m_List.GetLength()) //ï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å¼ï¿½ï¿½ï¿½
 	{
 		cout << "<========DELETE SUCCESS !===========>" << endl;
 		return 1;
@@ -129,17 +129,16 @@ int Application::DeleteItem()
 	return 0;
 }
 
-//ÇØ´ç idÀÇ itemÀ» º¯°æÇÑ´Ù.
+//ï¿½Ø´ï¿½ idï¿½ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 int Application::ReplaceItem()
 {
 	Content item;
-	item.setRecordFromKB(); //Å°º¸µå·ÎºÎÅÍ Á¤º¸¸¦ ÀÔ·Â¹ÞÀ½
+	item.setRecordFromKB(); //Å°ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·Â¹ï¿½ï¿½ï¿½
 
-	m_List.Replace(item); //ÇØ´ç itemÀÇ id¿Í ÀÏÄ¡ÇÏ´Â °ÍÀ» Ã£¾Æ ¹Ù²Û´Ù.
+	m_List.Replace(item); //ï¿½Ø´ï¿½ itemï¿½ï¿½ idï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½Ù²Û´ï¿½.
 	//this->DisplayAllItem();
 	return 0;
 }
-
 
 // Display all records in the list on screen.
 void Application::DisplayAllItem()
@@ -148,7 +147,7 @@ void Application::DisplayAllItem()
 
 	cout << "\n\tCurrent list" << endl;
 
-	// listÀÇ ¸ðµç µ¥ÀÌÅÍ¸¦ È­¸é¿¡ Ãâ·Â
+	// listï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½
 	m_List.ResetList();
 	int length = m_List.GetLength();
 	int curIndex = m_List.GetNextItem(data);
@@ -159,77 +158,77 @@ void Application::DisplayAllItem()
 	}
 }
 
-
 // Open a file by file descriptor as an input file.
 int Application::OpenInFile(string fileName)
 {
-	m_InFile.open(fileName);	// file open for reading.
+	m_InFile.open(fileName); // file open for reading.
 
-	// ÆÄÀÏ ¿ÀÇÂ¿¡ ¼º°øÇÏ¸é 1, ±×·¸Áö ¾Ê´Ù¸é 0À» ¸®ÅÏ.
-	if (!m_InFile)	return 0;
-	else	return 1;
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ 1, ï¿½×·ï¿½ï¿½ï¿½ ï¿½Ê´Ù¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	if (!m_InFile)
+		return 0;
+	else
+		return 1;
 }
-
 
 // Open a file by file descriptor as an output file.
 int Application::OpenOutFile(string fileName)
 {
-	m_OutFile.open(fileName);	// file open for writing.
+	m_OutFile.open(fileName); // file open for writing.
 
-	// ÆÄÀÏ ¿ÀÇÂ¿¡ ¼º°øÇÏ¸é 1, ±×·¸Áö ¾Ê´Ù¸é 0À» ¸®ÅÏ.
-	if (!m_OutFile)	return 0;
-	else	return 1;
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ 1, ï¿½×·ï¿½ï¿½ï¿½ ï¿½Ê´Ù¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	if (!m_OutFile)
+		return 0;
+	else
+		return 1;
 }
-
 
 // Open a file as a read mode, read all data on the file, and set list by the data.
 int Application::ReadDataFromFile()
 {
 	int index = 0;
-	Content data;	// ÀÐ±â¿ë ÀÓ½Ã º¯¼ö
+	Content data; // ï¿½Ð±ï¿½ï¿½ ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	string filename;
 	cout << "\n\tEnter Output file Name : ";
 	cin >> filename;
 
-	// file open, open error°¡ ¹ß»ýÇÏ¸é 0À» ¸®ÅÏ
+	// file open, open errorï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (!OpenInFile(filename))
 		return 0;
 
-	// ÆÄÀÏÀÇ ¸ðµç ³»¿ëÀ» ÀÐ¾î list¿¡ Ãß°¡
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ listï¿½ï¿½ ï¿½ß°ï¿½
 	while (!m_InFile.eof())
 	{
-		// array¿¡ ÇÐ»ýµéÀÇ Á¤º¸°¡ µé¾îÀÖ´Â structure ÀúÀå
+		// arrayï¿½ï¿½ ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ structure ï¿½ï¿½ï¿½ï¿½
 		data.ReadDataFromFile(m_InFile);
 		m_List.Add(data);
 	}
 
-	m_InFile.close();	// file close
+	m_InFile.close(); // file close
 
-	// ÇöÀç list Ãâ·Â
+	// ï¿½ï¿½ï¿½ï¿½ list ï¿½ï¿½ï¿½
 	//DisplayAllItem();
 
 	return 1;
 }
 
-
 // Open a file as a write mode, and write all data into the file,
 int Application::WriteDataToFile()
 {
-	Content data;	// ¾²±â¿ë ÀÓ½Ã º¯¼ö
+	Content data; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	string filename;
 	cout << "\n\tEnter Output file Name : ";
 	cin >> filename;
 
-	// file open, open error°¡ ¹ß»ýÇÏ¸é 0À» ¸®ÅÏ
+	// file open, open errorï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (!OpenOutFile(filename))
 		return 0;
 
-	// list Æ÷ÀÎÅÍ¸¦ ÃÊ±âÈ­
+	// list ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ê±ï¿½È­
 	m_List.ResetList();
 
-	// listÀÇ ¸ðµç µ¥ÀÌÅÍ¸¦ ÆÄÀÏ¿¡ ¾²±â
+	// listï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int length = m_List.GetLength();
 	int curIndex = m_List.GetNextItem(data);
 	while (curIndex < length && curIndex != -1)
@@ -238,26 +237,25 @@ int Application::WriteDataToFile()
 		curIndex = m_List.GetNextItem(data);
 	}
 
-	m_OutFile.close();	// file close
+	m_OutFile.close(); // file close
 
 	return 1;
 }
 
-// ¸®½ºÆ®¿¡¼­ ÇØ´ç id¸¦ °¡Áø itemÀ» Ã£´Â´Ù.
+// ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ idï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ Ã£ï¿½Â´ï¿½.
 int Application::SearchByID_BinaryS()
 {
 	Content item;
 
-	item.SetNameFromKB();	//id¸¦ ÀÔ·Â¹Þ´Â´Ù
-	if (m_List.Retrieve_BinaryS(item))	//ÀÌÁøÅ½»ö¿¡ ¼º°øÇß´Ù¸é
+	item.SetNameFromKB();							 //idï¿½ï¿½ ï¿½Ô·Â¹Þ´Â´ï¿½
+	if (m_List.Retrieve_BinaryS(item)) //ï¿½ï¿½ï¿½ï¿½Å½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ß´Ù¸ï¿½
 	{
 		cout << "<============I FOUND ITEM !==========>" << endl;
 		item.displayRecord();
 		cout << "<====================================>" << endl;
-		return 1;	//¼º°ø(1)À» ¹ÝÈ¯
+		return 1; //ï¿½ï¿½ï¿½ï¿½(1)ï¿½ï¿½ ï¿½ï¿½È¯
 	}
-	//¹ß°ß ¸øÇÒ½Ã
+	//ï¿½ß°ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½
 	cout << "<========I CAN'T FIND ITEM !==========>" << endl;
-	return 0;	//½ÇÆÐ(0)À» ¹ÝÈ¯
-
+	return 0; //ï¿½ï¿½ï¿½ï¿½(0)ï¿½ï¿½ ï¿½ï¿½È¯
 }

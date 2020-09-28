@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#include <fstream>	
+#include <fstream>
 #include <string>
 using namespace std;
 
@@ -76,68 +76,66 @@ public:
 	*	@param	data	get current iterator's item. it does not need to be initialized.
 	*	@return	index of current iterator's item if is not end of list, oterwise return -1.
 	*/
-	int GetNextItem(Content& data);
+	int GetNextItem(Content &data);
 
 	/**
-	*	@brief	itemÀ» Ã£¾Æ¼­ ÇØ´ç itemÀ» ¹ÝÈ¯ÇÑ´Ù.
-	*	@pre	ÀÎ¼ö data¿¡ ÀÖ´Â id°¡ list ³»¿¡ Á¸ÀçÇÏ´Â °ªÀÌ¾î¾ß ÇÑ´Ù.
-	*	@post	list ³»¿¡¼­ Ã£Àº itemÀÌ data¿¡ ÀÔ·ÂµÈ´Ù.
-	*	@param	data	Ã£°íÀÚ ÇÏ´Â id°¡ ÀÔ·ÂµÈ ItemType°ª. ¹ß°ßÇÑ itemÀÌ ¸®ÅÏµÈ´Ù.
-	*	@return	¼º°ø(¹ß°ß)½Ã 1, ½ÇÆÐ½Ã 0À» ¸®ÅÏÇÑ´Ù.
+	*	@brief	itemï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½Ø´ï¿½ itemï¿½ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½.
+	*	@pre	ï¿½Î¼ï¿½ dataï¿½ï¿½ ï¿½Ö´ï¿½ idï¿½ï¿½ list ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½Ñ´ï¿½.
+	*	@post	list ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ itemï¿½ï¿½ dataï¿½ï¿½ ï¿½Ô·ÂµÈ´ï¿½.
+	*	@param	data	Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ idï¿½ï¿½ ï¿½Ô·Âµï¿½ ItemTypeï¿½ï¿½. ï¿½ß°ï¿½ï¿½ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ÏµÈ´ï¿½.
+	*	@return	ï¿½ï¿½ï¿½ï¿½(ï¿½ß°ï¿½)ï¿½ï¿½ 1, ï¿½ï¿½ï¿½Ð½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	*/
-	int Retrieve_SeqS(Content& data);
+	int Retrieve_SeqS(Content &data);
 
 	/**
-	*	@brief	id°¡ ÀÏÄ¡ÇÏ´Â itemÀ» Ã£¾Æ¼­ ÇØ´ç itemÀ» Á¦°ÅÇÑ´Ù.
-	*	@pre	ÀÎ¼ö data¿¡ ÀÖ´Â id°¡ list ³»¿¡ Á¸ÀçÇÏ´Â °ªÀÌ¾î¾ß ÇÑ´Ù.
-	*	@post	list ³»¿¡ ÇØ´ç itemÀÌ Á¦°ÅµÈ´Ù.
-	*	@param	data	Á¦°ÅÇÏ°íÀÚ ÇÏ´Â id°¡ ÀÔ·ÂµÈ ItemType°ª.
-	*	@return	¼º°ø½Ã 1, ½ÇÆÐ½Ã 0À» ¸®ÅÏÇÑ´Ù.
+	*	@brief	idï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ itemï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½Ø´ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	*	@pre	ï¿½Î¼ï¿½ dataï¿½ï¿½ ï¿½Ö´ï¿½ idï¿½ï¿½ list ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½Ñ´ï¿½.
+	*	@post	list ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ÅµÈ´ï¿½.
+	*	@param	data	ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ idï¿½ï¿½ ï¿½Ô·Âµï¿½ ItemTypeï¿½ï¿½.
+	*	@return	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1, ï¿½ï¿½ï¿½Ð½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	*/
 	int Delete(Content data);
 
 	/**
-	*	@brief	id°¡ ÀÏÄ¡ÇÏ´Â list³» itemÀ» Ã£¾Æ¼­ º¯°æÇÑ´Ù.
-	*	@pre	ÀÎ¼ö data¿¡ ÀÖ´Â id°¡ list ³»¿¡ Á¸ÀçÇÏ´Â °ªÀÌ¾î¾ß ÇÑ´Ù.
-	*	@post	¹è¿­ ³»¿¡ ³Ñ°Ü¹ÞÀº item°ú id°¡ ÀÏÄ¡ÇÏ´Â °ªÀÌ ³Ñ°Ü¹ÞÀº itemÀÇ ³»¿ëÀ¸·Î º¯°æµÈ´Ù.
-	*	@param	data	±³Ã¼ÇÏ°íÀÚ ÇÏ´Â id¿Í ·¹ÄÚµå¸¦ °¡Áø ItemType°ª.
-	*	@return	¼º°ø½Ã 1, ½ÇÆÐ½Ã 0À» ¸®ÅÏÇÑ´Ù.
+	*	@brief	idï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ listï¿½ï¿½ itemï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+	*	@pre	ï¿½Î¼ï¿½ dataï¿½ï¿½ ï¿½Ö´ï¿½ idï¿½ï¿½ list ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½ï¿½ ï¿½Ñ´ï¿½.
+	*	@post	ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°Ü¹ï¿½ï¿½ï¿½ itemï¿½ï¿½ idï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°Ü¹ï¿½ï¿½ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È´ï¿½.
+	*	@param	data	ï¿½ï¿½Ã¼ï¿½Ï°ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ idï¿½ï¿½ ï¿½ï¿½ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ï¿½ ItemTypeï¿½ï¿½.
+	*	@return	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1, ï¿½ï¿½ï¿½Ð½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	*/
 	int Replace(Content data);
 
 	/**
-	*	@brief	ÀÌÁøÅ½»öÀ» ÅëÇØ id°¡ ÀÏÄ¡ÇÏ´Â list³» itemÀ» Ã£¾Æ¼­ ¹ÝÈ¯ÇÑ´Ù.
-	*	@pre	¾øÀ½.
-	*	@post	¹è¿­ ³»¿¡ ³Ñ°Ü¹ÞÀº item°ú id°¡ ÀÏÄ¡ÇÏ´Â °ªÀ» Ã£¾Æ¼­ data·Î ¹ÝÈ¯µÈ´Ù.
-	*	@param	data	Ã£°íÀÚ ÇÏ´Â id°¡ ÀÔ·ÂµÈ ItemType°ª.
-	*	@return	¼º°ø(¹ß°ß)½Ã 1, ½ÇÆÐ½Ã 0À» ¸®ÅÏÇÑ´Ù.
+	*	@brief	ï¿½ï¿½ï¿½ï¿½Å½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ idï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ listï¿½ï¿½ itemï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½.
+	*	@pre	ï¿½ï¿½ï¿½ï¿½.
+	*	@post	ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ°Ü¹ï¿½ï¿½ï¿½ itemï¿½ï¿½ idï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ dataï¿½ï¿½ ï¿½ï¿½È¯ï¿½È´ï¿½.
+	*	@param	data	Ã£ï¿½ï¿½ï¿½ï¿½ ï¿½Ï´ï¿½ idï¿½ï¿½ ï¿½Ô·Âµï¿½ ItemTypeï¿½ï¿½.
+	*	@return	ï¿½ï¿½ï¿½ï¿½(ï¿½ß°ï¿½)ï¿½ï¿½ 1, ï¿½ï¿½ï¿½Ð½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	*/
-	int Retrieve_BinaryS(Content& data);
+	int Retrieve_BinaryS(Content &data);
 
 private:
-	Content m_Array[MAXSIZE];  ///< list array.
-	int m_Length;				///< number of elements in list.
-	int m_CurPointer;			///< iterator pointer.
+	Content m_Array[MAXSIZE]; ///< list array.
+	int m_Length;							///< number of elements in list.
+	int m_CurPointer;					///< iterator pointer.
 };
 
 // Make list empty.
-template<typename Content>
+template <typename Content>
 void SortedList<Content>::MakeEmpty()
 {
 	m_Length = 0;
 }
 
-
 // Get a number of records in current list.
-template<typename Content>
+template <typename Content>
 int SortedList<Content>::GetLength()
 {
 	return m_Length;
 }
 
-
 // Check capacity of list is full.
-template<typename Content>
+template <typename Content>
 bool SortedList<Content>::IsFull()
 {
 	if (m_Length > MAXSIZE - 1)
@@ -146,14 +144,12 @@ bool SortedList<Content>::IsFull()
 		return false;
 }
 
-
-
 // search item by using primary key
 
-template<typename Content>
+template <typename Content>
 int SortedList<Content>::Add(Content inData)
 {
-	// List°¡ ²Ë Â÷ÀÖ´Â °æ¿ì 0À» ¸®ÅÏ
+	// Listï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (IsFull())
 	{
 		/*MAXSIZE += 5;
@@ -163,16 +159,17 @@ int SortedList<Content>::Add(Content inData)
 		m_Array = temp;*/
 		return 0;
 	}
-	if (m_Length == 0) {    	// List°¡ ºñ¾î ÀÖÀ¸¸é ¸Ç žA¿¡ Ãß°¡, length++, 1À» ¸®ÅÏ 
+	if (m_Length == 0)
+	{ // Listï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Aï¿½ï¿½ ï¿½ß°ï¿½, length++, 1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		m_Array[m_Length++] = inData;
 		return 1;
 	}
-	// »õ Ç×¸ñÀÇ »ðÀÔ À§Ä¡ iPos¸¦ °Ë»ö. ³¡¿¡ µµ´ÞÇÏ°Å³ª ÇöÀç itemÀÌ inDataº¸´Ù Å©¸é Á¾·á
+	// ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ iPosï¿½ï¿½ ï¿½Ë»ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°Å³ï¿½ ï¿½ï¿½ï¿½ï¿½ itemï¿½ï¿½ inDataï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int iPos = 0;
 	bool found = false;
 	Content curItem;
 	ResetList();
-	iPos = GetNextItem(curItem);  // ³¡¿¡ µµ´ÞÇÏ¸é -1À» ¸®ÅÏ
+	iPos = GetNextItem(curItem); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ -1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	while (iPos > -1 && !found)
 	{
 		switch (curItem.Compare(inData))
@@ -188,110 +185,103 @@ int SortedList<Content>::Add(Content inData)
 			break;
 		}
 	}
-	//³¡¿¡ µµ´ÞÇÏ¸é iPos==-1. ÀÌ°æ¿ì ¸Ç µÚ¿¡ Ãß°¡
-	if (iPos == -1) {
-		// ÀÎµ¦½º length¿¡ Ãß°¡, length++, 1¸®ÅÏ
+	//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ iPos==-1. ï¿½Ì°ï¿½ï¿½ ï¿½ï¿½ ï¿½Ú¿ï¿½ ï¿½ß°ï¿½
+	if (iPos == -1)
+	{
+		// ï¿½Îµï¿½ï¿½ï¿½ lengthï¿½ï¿½ ï¿½ß°ï¿½, length++, 1ï¿½ï¿½ï¿½ï¿½
 		m_Array[m_Length++] = inData;
 		return 1;
 	}
-	// iPost<lengthÀÌ¸é iPosºÎÅÍ length-1 »çÀÌÀÇ ¸ðµç Ç×¸ñÀ» µÚ·Î ÇÑ Ä­¾¿ ÀÌµ¿
+	// iPost<lengthï¿½Ì¸ï¿½ iPosï¿½ï¿½ï¿½ï¿½ length-1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½Ú·ï¿½ ï¿½ï¿½ Ä­ï¿½ï¿½ ï¿½Ìµï¿½
 	for (int i = m_Length; i > iPos; i--)
 		m_Array[i] = m_Array[i - 1];
-	// iPos¿¡ Ãß°¡,
+	// iPosï¿½ï¿½ ï¿½ß°ï¿½,
 	m_Array[iPos] = inData;
-	// Length++, 1¸®ÅÏ
+	// Length++, 1ï¿½ï¿½ï¿½ï¿½
 	m_Length++;
 	return 1;
 }
 
-
-
 // Initialize list iterator.
-template<typename Content>
+template <typename Content>
 void SortedList<Content>::ResetList()
 {
 	m_CurPointer = -1;
 }
 
-
 // move list iterator to the next item in list and get that item.
-template<typename Content>
-int SortedList<Content>::GetNextItem(Content& data)
+template <typename Content>
+int SortedList<Content>::GetNextItem(Content &data)
 {
-	m_CurPointer++;	// list pointer Áõ°¡
-	if (m_CurPointer == m_Length)	// end of listÀÌ¸é -1À» ¸®ÅÏ
+	m_CurPointer++;								// list pointer ï¿½ï¿½ï¿½ï¿½
+	if (m_CurPointer == m_Length) // end of listï¿½Ì¸ï¿½ -1ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		return -1;
-	data = m_Array[m_CurPointer];	// ÇöÀç list pointerÀÇ ·¹ÄÚµå¸¦ º¹»ç
+	data = m_Array[m_CurPointer]; // ï¿½ï¿½ï¿½ï¿½ list pointerï¿½ï¿½ ï¿½ï¿½ï¿½Úµå¸¦ ï¿½ï¿½ï¿½ï¿½
 
 	return m_CurPointer;
 }
 
-
-
-
-//Primary key°¡ ÀÏÄ¡ÇÏ´Â itemÀ» Ã£¾Æ¼­ ¹ÝÈ¯ÇÔ
-template<typename Content>
-int SortedList<Content>::Retrieve_SeqS(Content& data)
+//Primary keyï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ itemï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½ï¿½È¯ï¿½ï¿½
+template <typename Content>
+int SortedList<Content>::Retrieve_SeqS(Content &data)
 {
 	Content CurItem;
 
-	ResetList();	//iterator ÃÊ±âÈ­
-	GetNextItem(CurItem);	//Ã¹¾ÆÀÌÅÛ °¡Á®¿È
-	while (m_CurPointer < m_Length)	//Ã³À½ºÎÅÍ ³¡±îÁö
+	ResetList();										//iterator ï¿½Ê±ï¿½È­
+	GetNextItem(CurItem);						//Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	while (m_CurPointer < m_Length) //Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
-		switch (CurItem.Compare(data))	//ÀÔ·Â ¾ÆÀÌÅÛ°ú ÇöÀç ¾ÆÀÌÅÛÀ» ºñ±³
+		switch (CurItem.Compare(data)) //ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 		{
-		case EQUAL:	//ÀÏÄ¡ÇÏ¸é
-			data = CurItem;	//data¿¡ ÇöÀç ¾ÆÀÌÅÛÀ» ¹ÝÈ¯
-			return 1;	//¼º°ø(1)À» ¸®ÅÏ
+		case EQUAL:				//ï¿½ï¿½Ä¡ï¿½Ï¸ï¿½
+			data = CurItem; //dataï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
+			return 1;				//ï¿½ï¿½ï¿½ï¿½(1)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			break;
-		case GREATER:	//ÇöÀç ¾ÆÀÌÅÛÀÇ Primary key°¡ ´õ Å©¸é(Á¤·ÄµÇÀÖÀ¸¹Ç·Î ³ª¸ÓÁö¿¡ Ã£´Â°Ô ¾ø´Ù)
-			return 0;	//½ÇÆÐ(0)À» ¸®ÅÏ
+		case GREATER: //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Primary keyï¿½ï¿½ ï¿½ï¿½ Å©ï¿½ï¿½(ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½Â°ï¿½ ï¿½ï¿½ï¿½ï¿½)
+			return 0;		//ï¿½ï¿½ï¿½ï¿½(0)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			break;
-		default:	//ÇöÀç ¾ÆÀÌÅÛÀÇ Primary key°¡ ´õ ÀÛÀ¸¸é
-			GetNextItem(CurItem);	//´ÙÀ½ ¾ÆÀÌÅÛÀ» °¡Á®¿Â´Ù.(°è¼Ó Å½»ö)
+		default:								//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Primary keyï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			GetNextItem(CurItem); //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½.(ï¿½ï¿½ï¿½ Å½ï¿½ï¿½)
 			break;
 		}
 	}
-	return 0; //½ÇÆÐ½Ã0
+	return 0; //ï¿½ï¿½ï¿½Ð½ï¿½0
 }
 
-
-
-//Primary key°¡ ÀÏÄ¡ÇÏ´Â itemÀ» Ã£¾Æ¼­ Á¦°ÅÇÔ
-template<typename Content>
+//Primary keyï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ itemï¿½ï¿½ Ã£ï¿½Æ¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+template <typename Content>
 int SortedList<Content>::Delete(Content data)
 {
-	if (Retrieve_SeqS(data))	//Primary key°¡ ÀÏÄ¡ÇÏ´Â itemÀ» ¹ß°ßÇÑ´Ù¸é(1)
+	if (Retrieve_SeqS(data)) //Primary keyï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ itemï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ñ´Ù¸ï¿½(1)
 	{
-		for (int i = m_CurPointer; i < m_Length; i++)	//ÇöÀç Æ÷ÀÎÅÍºÎÅÍ ÀÔ·ÂµÈ ¹è¿­ ³¡±îÁö ¹Ýº¹
-			m_Array[i] = m_Array[i + 1];	//¹è¿­ µÚ¿¡°É ¾ÕÀ¸·Î ÇÏ³ª¾¿ ¶¯±è
-		m_Length--;	//¾ÆÀÌÅÛ °³¼ö¸¦ ÇÏ³ª ÁÙÀÓ
-		return 1;	//¼º°ø(1)À» ¸®ÅÏ
+		for (int i = m_CurPointer; i < m_Length; i++) //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½ï¿½ï¿½ ï¿½Ô·Âµï¿½ ï¿½è¿­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½
+			m_Array[i] = m_Array[i + 1];								//ï¿½è¿­ ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		m_Length--;																		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï³ï¿½ ï¿½ï¿½ï¿½ï¿½
+		return 1;																			//ï¿½ï¿½ï¿½ï¿½(1)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
-	return 0;	//Primary keyÀÏÄ¡ÇÏ´Â itemÀ» Ã£Áö ¸øÇÑ´Ù¸é ½ÇÆÐ(0)À» ¸®ÅÏ
+	return 0; //Primary keyï¿½ï¿½Ä¡ï¿½Ï´ï¿½ itemï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½(0)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
-//Primary key°¡ ÀÏÄ¡ÇÏ´Â itemÀÇ ³»¿ëÀ» ±³Ã¼½ÃÅ´
-template<typename Content>
+//Primary keyï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½Å´
+template <typename Content>
 int SortedList<Content>::Replace(Content data)
 {
-	Content tmp(data);	//ÀÔ·Â¹ÞÀº itemÀ» ¹é¾÷
+	Content tmp(data); //ï¿½Ô·Â¹ï¿½ï¿½ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½
 
-	if (Retrieve_SeqS(data))	//ÀÏÄ¡ÇÏ´Â ¾ÆÀÌÅÛÀ» Ã£Àº °æ¿ì
+	if (Retrieve_SeqS(data)) //ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½
 	{
-		m_Array[m_CurPointer] = tmp;	//¹è¿­¿¡¼­ ÇöÀçÆ÷ÀÎÅÍ°¡ °¡¸£Å°´Â °ÍÀ» ¹é¾÷Çß´ø ¾ÆÀÌÅÛÀ¸·Î ±³Ã¼½ÃÅ´
-		return 1;	//¼º°ø(1)À» ¸®ÅÏ
+		m_Array[m_CurPointer] = tmp; //ï¿½è¿­ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ß´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½Å´
+		return 1;										 //ï¿½ï¿½ï¿½ï¿½(1)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	}
-	return 0;	//Primary key¿Í ÀÏÄ¡ÇÏ´Â itemÀ» Ã£Áö ¸øÇÑ´Ù¸é ½ÇÆÐ(0)À» ¸®ÅÏ
+	return 0; //Primary keyï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ itemï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½(0)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
-//Primary key°¡ ÀÏÄ¡ÇÏ´Â itemÀ» ÀÌÁøÅ½»öÀ¸·Î °Ë»öÇØ¼­ ¹ÝÈ¯ÇÑ´Ù.
-template<typename Content>
-int SortedList<Content>::Retrieve_BinaryS(Content& data)
+//Primary keyï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ï´ï¿½ itemï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½È¯ï¿½Ñ´ï¿½.
+template <typename Content>
+int SortedList<Content>::Retrieve_BinaryS(Content &data)
 {
-	if (m_Length == 0)	//¸¸¾à ¹è¿­ÀÌ ºñ¾ú´Ù¸é
-		return 0;	//½ÇÆÐ(0)À» ¸®ÅÏ
+	if (m_Length == 0) //ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ù¸ï¿½
+		return 0;				 //ï¿½ï¿½ï¿½ï¿½(0)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int low = 0;
 	int high = m_Length - 1;
 	int mid;
@@ -300,23 +290,23 @@ int SortedList<Content>::Retrieve_BinaryS(Content& data)
 		mid = (low + high) / 2;
 		switch (m_Array[mid].Compare(data))
 		{
-		case EQUAL:	//ÇöÀç ¾ÆÀÌÅÛ°ú ÀÔ·Â ¾ÆÀÌÅÛÀÇ Primary key°¡ ÀÏÄ¡ÇÑ´Ù¸é
-			data = m_Array[mid];	//data¿¡ ¹ß°ßÇÑ °ªÀ» ¸®ÅÏ
-			return 1;	//¼º°ø(1)À» ¸®ÅÏ
+		case EQUAL:						 //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Û°ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Primary keyï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½Ñ´Ù¸ï¿½
+			data = m_Array[mid]; //dataï¿½ï¿½ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			return 1;						 //ï¿½ï¿½ï¿½ï¿½(1)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			break;
-		case GREATER:	//ÇöÀç ¾ÆÀÌÅÛÀÇ Primary key°¡ ÀÔ·Â ¾ÆÀÌÅÛÀÇ Primary keyº¸´Ù Å©´Ù¸é
-			if (mid <= low)	//Ã³À½ ¹è¿­ÀÇ °ªº¸´Ù ÀÛÀº°æ¿ì
-				return 0;	//½ÇÆÐ(0)À» ¸®ÅÏ
-			//currentPos /= 2;	//´õ ÀÛÀºÂÊ ÀÎµ¦½ºÀÇ Àý¹Ý·Î ÀÌµ¿
+		case GREATER:			//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Primary keyï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Primary keyï¿½ï¿½ï¿½ï¿½ Å©ï¿½Ù¸ï¿½
+			if (mid <= low) //Ã³ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				return 0;			//ï¿½ï¿½ï¿½ï¿½(0)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			//currentPos /= 2;	//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ý·ï¿½ ï¿½Ìµï¿½
 			high = mid - 1;
 			break;
-		case LESS:	//ÇöÀç ¾ÆÀÌÅÛÀÇ Primary key°¡ ÀÔ·Â ¾ÆÀÌÅÛÀÇ Primary keyº¸´Ù ÀÛ´Ù¸é
-			if (mid >= high)	//¸¶Áö¸· ¹è¿­ÀÇ °ªº¸´Ù Å«°æ¿ì
-				return 0;	//½ÇÆÐ(0)À» ¸®ÅÏ
-			//mid = (mid + m_Length) / 2;	//´õ Å«ÂÊ ÀÎµ¦½ºÀÇ Àý¹ÝÀ¸·Î ÀÌµ¿
+		case LESS:				 //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Primary keyï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Primary keyï¿½ï¿½ï¿½ï¿½ ï¿½Û´Ù¸ï¿½
+			if (mid >= high) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½è¿­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å«ï¿½ï¿½ï¿½
+				return 0;			 //ï¿½ï¿½ï¿½ï¿½(0)ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			//mid = (mid + m_Length) / 2;	//ï¿½ï¿½ Å«ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½
 			low = mid + 1;
 			break;
 		}
 	}
-	return 0;	//È£ÃâµÉ ÀÏ ¾ø´Â ¸®ÅÏ(WARNING ¹æÁö¿ë)
+	return 0; //È£ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(WARNING ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 }

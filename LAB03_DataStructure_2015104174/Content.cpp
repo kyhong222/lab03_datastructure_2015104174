@@ -1,6 +1,7 @@
-#include"Content.h"
+#include "Content.h"
 
-void Content::displayRecord() {
+void Content::displayRecord()
+{
 	cout << endl;
 	cout << "\tFile name : " << fileName << endl;
 	cout << "\tCreate at : " << createAt << endl;
@@ -47,7 +48,8 @@ void Content::displayRecord() {
 	cout << "--------------------------------" << endl;
 }
 
-void Content::displayRecordForLink() {
+void Content::displayRecordForLink()
+{
 	cout << endl;
 	cout << "\tFile name : " << fileName << endl;
 	cout << "\tCreate at : " << createAt << endl;
@@ -71,7 +73,8 @@ void Content::displayRecordForLink() {
 	cout << "--------------------------------" << endl;
 }
 
-void Content::setRecordFromKB() {
+void Content::setRecordFromKB()
+{
 	cout << "\tFile name : ";
 	cin >> fileName;
 
@@ -94,7 +97,8 @@ void Content::setRecordFromKB() {
 	cin >> kindOf;
 }
 
-void Content::setRecordFromKBForLink() {
+void Content::setRecordFromKBForLink()
+{
 	cout << "\tFile name : ";
 	cin >> fileName;
 
@@ -106,7 +110,7 @@ void Content::setRecordFromKBForLink() {
 }
 
 // Read a record from file.
-int Content::ReadDataFromFile(ifstream& fin)
+int Content::ReadDataFromFile(ifstream &fin)
 {
 	fin >> fileName;
 	fin >> createAt;
@@ -120,7 +124,7 @@ int Content::ReadDataFromFile(ifstream& fin)
 };
 
 // Write a record into file.
-int Content::WriteDataToFile(ofstream& fout)
+int Content::WriteDataToFile(ofstream &fout)
 {
 	fout << endl;
 	fout << fileName << " ";
@@ -135,7 +139,7 @@ int Content::WriteDataToFile(ofstream& fout)
 }
 
 // Read a record from file.
-int Content::ReadDataFromFileForLink(ifstream& fin)
+int Content::ReadDataFromFileForLink(ifstream &fin)
 {
 	fin >> fileName;
 	fin >> createAt;
@@ -145,7 +149,7 @@ int Content::ReadDataFromFileForLink(ifstream& fin)
 };
 
 // Write a record into file.
-int Content::WriteDataToFileForLink(ofstream& fout)
+int Content::WriteDataToFileForLink(ofstream &fout)
 {
 	fout << endl;
 	fout << fileName << " ";
@@ -154,7 +158,6 @@ int Content::WriteDataToFileForLink(ofstream& fout)
 
 	return 1;
 }
-
 
 // Compare two itemtypes.
 RelationType Content::Compare(const Content &data)

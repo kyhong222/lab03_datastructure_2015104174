@@ -1,54 +1,64 @@
-#include"Event.h"
+#include "Event.h"
 
-int Event::AddItem() {
+int Event::AddItem()
+{
 	Content temp;
 	temp.SetNameFromKB();
 
-	if (MasterList->Retrieve_BinaryS(temp)) {
+	if (MasterList->Retrieve_BinaryS(temp))
+	{
 		temp = temp.getRecordForLink();
 		MCList.Add(temp);
 		MCLength++;
 		return 1;
 	}
-	else {
+	else
+	{
 		cout << "\tThere is no item like that" << endl;
 		return 0;
 	}
 }
 
-int Event::DeleteItem() {
+int Event::DeleteItem()
+{
 	Content temp;
 	temp.SetNameFromKB();
 
-	if (MCList.Delete(temp)) { 
-		MCLength--; 
+	if (MCList.Delete(temp))
+	{
+		MCLength--;
 		return 1;
 	}
-	else {
+	else
+	{
 		cout << "\tThere is no item like that" << endl;
 		return 0;
 	}
 }
 
-int Event::RetriveItem() {
+int Event::RetriveItem()
+{
 	Content temp;
 	temp.SetNameFromKB();
-	if (MCList.Retrieve_BinaryS(temp)) {
+	if (MCList.Retrieve_BinaryS(temp))
+	{
 		temp.displayRecord();
 		return 1;
 	}
-	else {
+	else
+	{
 		cout << "\tThere is no item like that" << endl;
 		return 0;
 	}
 }
 
-void Event::DisplayItems() {
+void Event::DisplayItems()
+{
 	Content temp;
 	cout << endl;
 	cout << "\n\tMC list in event(Link)" << endl;
 
-	// listÀÇ ¸ðµç µ¥ÀÌÅÍ¸¦ È­¸é¿¡ Ãâ·Â
+	// listï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½
 	MCList.ResetList();
 	int length = MCLength;
 	int curIndex = MCList.GetNextItem(temp);
@@ -59,13 +69,13 @@ void Event::DisplayItems() {
 	}
 }
 
-
-void Event::DisplayItemsDetailed() {
+void Event::DisplayItemsDetailed()
+{
 	Content temp;
 	cout << endl;
 	cout << "\n\tMC list in event" << endl;
 
-	// listÀÇ ¸ðµç µ¥ÀÌÅÍ¸¦ È­¸é¿¡ Ãâ·Â
+	// listï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½
 	MCList.ResetList();
 	int length = MCLength;
 	int curIndex = MCList.GetNextItem(temp);
@@ -77,7 +87,8 @@ void Event::DisplayItemsDetailed() {
 	}
 }
 
-void Event::setEventFromKB() {
+void Event::setEventFromKB()
+{
 	string nameData, descriptionData;
 
 	cout << "\t Event name : ";
@@ -90,10 +101,12 @@ void Event::setEventFromKB() {
 	description = descriptionData;
 }
 
-void Event::getCommand() {
+void Event::getCommand()
+{
 	while (1)
 	{
-		cout << endl << endl;
+		cout << endl
+				 << endl;
 		cout << "\tEvent name : " << name << endl;
 		cout << "\tEvent description : " << description << endl;
 		cout << "\t---ID -- Command ----- " << endl;
@@ -108,37 +121,38 @@ void Event::getCommand() {
 		cout << "\t   9 : Set event data" << endl;
 		cout << "\t   0 : Quit" << endl;
 
-		cout << endl << "\t Choose a Command--> ";
+		cout << endl
+				 << "\t Choose a Command--> ";
 
 		int m_Command;
 		cin >> m_Command;
 
 		switch (m_Command)
 		{
-		case 1:		// read a record and add to list.
+		case 1: // read a record and add to list.
 			AddItem();
 			break;
-		case 2:		//delete
+		case 2: //delete
 			DeleteItem();
 			break;
-		case 3:		//replace
+		case 3: //replace
 			RetriveItem();
 			break;
-		case 4:		//search by filename.
+		case 4: //search by filename.
 			DisplayItems();
 			break;
-		case 5:		// display all the records in list on screen.
+		case 5: // display all the records in list on screen.
 			DisplayItemsDetailed();
 			break;
-		case 6:		// make empty list.
+		case 6: // make empty list.
 			MCList.MakeEmpty();
 			name = "untitled";
 			description = "no-description";
 			break;
-		case 7:		// load list data from a file.
+		case 7: // load list data from a file.
 			ReadDataFromFile();
 			break;
-		case 8:		// save list data into a file.
+		case 8: // save list data into a file.
 			WriteDataToFile();
 			break;
 		case 9:
@@ -156,52 +170,55 @@ void Event::getCommand() {
 // Open a file by file descriptor as an input file.
 int Event::OpenInFile(string fileName)
 {
-	m_InFile.open(fileName);	// file open for reading.
+	m_InFile.open(fileName); // file open for reading.
 
-	// ÆÄÀÏ ¿ÀÇÂ¿¡ ¼º°øÇÏ¸é 1, ±×·¸Áö ¾Ê´Ù¸é 0À» ¸®ÅÏ.
-	if (!m_InFile)	return 0;
-	else	return 1;
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ 1, ï¿½×·ï¿½ï¿½ï¿½ ï¿½Ê´Ù¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	if (!m_InFile)
+		return 0;
+	else
+		return 1;
 }
-
 
 // Open a file by file descriptor as an output file.
 int Event::OpenOutFile(string fileName)
 {
-	m_OutFile.open(fileName);	// file open for writing.
+	m_OutFile.open(fileName); // file open for writing.
 
-	// ÆÄÀÏ ¿ÀÇÂ¿¡ ¼º°øÇÏ¸é 1, ±×·¸Áö ¾Ê´Ù¸é 0À» ¸®ÅÏ.
-	if (!m_OutFile)	return 0;
-	else	return 1;
+	// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ 1, ï¿½×·ï¿½ï¿½ï¿½ ï¿½Ê´Ù¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
+	if (!m_OutFile)
+		return 0;
+	else
+		return 1;
 }
 
 // Open a file as a read mode, read all data on the file, and set list by the data.
 int Event::ReadDataFromFile()
 {
 	int index = 0;
-	Content data;	// ÀÐ±â¿ë ÀÓ½Ã º¯¼ö
+	Content data; // ï¿½Ð±ï¿½ï¿½ ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	string filename;
 	cout << "\n\tEnter Output file Name : ";
 	cin >> filename;
 
-	// file open, open error°¡ ¹ß»ýÇÏ¸é 0À» ¸®ÅÏ
+	// file open, open errorï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (!OpenInFile(filename))
 		return 0;
 
-	// ÀÌº¥Æ® Á¤º¸ Ãß°¡
+	// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	m_InFile >> name >> description;
 
-	// ÆÄÀÏÀÇ ¸ðµç ³»¿ëÀ» ÀÐ¾î list¿¡ Ãß°¡
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ listï¿½ï¿½ ï¿½ß°ï¿½
 	while (!m_InFile.eof())
 	{
-		// array¿¡ ÇÐ»ýµéÀÇ Á¤º¸°¡ µé¾îÀÖ´Â structure ÀúÀå
+		// arrayï¿½ï¿½ ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ structure ï¿½ï¿½ï¿½ï¿½
 		data.ReadDataFromFileForLink(m_InFile);
 		MCList.Add(data);
 	}
 	MCLength = MCList.GetLength();
-	m_InFile.close();	// file close
+	m_InFile.close(); // file close
 
-	// ÇöÀç list Ãâ·Â
+	// ï¿½ï¿½ï¿½ï¿½ list ï¿½ï¿½ï¿½
 	//DisplayAllItem();
 
 	return 1;
@@ -210,24 +227,24 @@ int Event::ReadDataFromFile()
 // Open a file as a write mode, and write all data into the file,
 int Event::WriteDataToFile()
 {
-	Content data;	// ¾²±â¿ë ÀÓ½Ã º¯¼ö
+	Content data; // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 	string filename;
 	cout << "\n\tEnter Output file Name : ";
 	cin >> filename;
 
-	// file open, open error°¡ ¹ß»ýÇÏ¸é 0À» ¸®ÅÏ
+	// file open, open errorï¿½ï¿½ ï¿½ß»ï¿½ï¿½Ï¸ï¿½ 0ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	if (!OpenOutFile(filename))
 		return 0;
 
-	// ÀÌº¥Æ® Á¤º¸ Ãß°¡
+	// ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
 	m_OutFile << name << endl
-		<< description << endl;
+						<< description << endl;
 
-	// list Æ÷ÀÎÅÍ¸¦ ÃÊ±âÈ­
+	// list ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½Ê±ï¿½È­
 	MCList.ResetList();
 
-	// listÀÇ ¸ðµç µ¥ÀÌÅÍ¸¦ ÆÄÀÏ¿¡ ¾²±â
+	// listï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int length = MCLength;
 	int curIndex = MCList.GetNextItem(data);
 	while (curIndex < length && curIndex != -1)
@@ -236,7 +253,7 @@ int Event::WriteDataToFile()
 		curIndex = MCList.GetNextItem(data);
 	}
 
-	m_OutFile.close();	// file close
+	m_OutFile.close(); // file close
 
 	return 1;
 }
