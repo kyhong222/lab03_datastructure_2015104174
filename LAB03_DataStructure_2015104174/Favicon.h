@@ -1,7 +1,7 @@
 #pragma once
-#include<iostream>
-#include<string>
-#include<fstream>
+#include <iostream>
+#include <string>
+#include <fstream>
 #include "SortedList.h"
 #include "Content.h"
 
@@ -9,15 +9,17 @@ using namespace std;
 
 #define MAXSIZE 10
 
-class Favicon {
+class Favicon
+{
 public:
 	// constructor
-	Favicon() {
+	Favicon()
+	{
 		MCLength = 0;
 	}
 
 	// destructor
-	Favicon() {}
+	~Favicon() {}
 
 	// add item in favicon's MCList with fileName as simple record
 	int AddItem();
@@ -38,7 +40,7 @@ public:
 	void rearrange();
 
 	// it used for access master list on application
-	void setMasterList(SortedList<Content>* masterList) { MasterList = masterList; }
+	void setMasterList(SortedList<Content> *masterList) { MasterList = masterList; }
 
 	// calling event menus
 	void getCommand();
@@ -56,11 +58,11 @@ public:
 	int OpenOutFile(string filename);
 
 protected:
-	int MCLength;					///< MC length
+	int MCLength; ///< MC length
 
-	ifstream m_InFile;				///< input file descriptor.
-	ofstream m_OutFile;				///< output file descriptor.
+	ifstream m_InFile;	///< input file descriptor.
+	ofstream m_OutFile; ///< output file descriptor.
 
-	SortedList<Content> MCList;		///< MC list
-	SortedList<Content>* MasterList;///< master list pointer
+	SortedList<Content> MCList;			 ///< MC list
+	SortedList<Content> *MasterList; ///< master list pointer
 };
